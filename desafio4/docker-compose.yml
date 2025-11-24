@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  usuarios:
+    build: ./microservico1
+    ports:
+      - "5001:5001"
+    networks:
+      - ms-network
+
+  processador:
+    build: ./microservico2
+    ports:
+      - "5002:5002"
+    depends_on:
+      - usuarios
+    networks:
+      - ms-network
+
+networks:
+  ms-network:
+    driver: bridge
