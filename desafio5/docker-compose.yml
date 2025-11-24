@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  gateway:
+    build: ./gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - usuarios
+      - pedidos
+    networks:
+      - gateway-network
+
+  usuarios:
+    build: ./microservico1
+    ports:
+      - "5001:5001"
+    networks:
+      - gateway-network
+
+  pedidos:
+    build: ./microservico2
+    ports:
+      - "5002:5002"
+    networks:
+      - gateway-network
+
+networks:
+  gateway-network:
+    driver: bridge
