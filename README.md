@@ -8,15 +8,15 @@
   - Client (Requisições periódicas)
 
   Cria a rede:
-  ``` docker network create redeD1```
+  ``` docker network create redeD1```<br>
   Build da imagem do Servior:
-  ```docker build -t servidord1 ./desafio1/servidor```
+  ```docker build -t servidord1 ./desafio1/servidor```<br>
   Build da imagem do Cliente:
-  ```docker build -t cliented1 ./desafio1/cliente```
+  ```docker build -t cliented1 ./desafio1/cliente```<br>
   Subir o servidor:
-  ```docker run -d --name server --network redeD1 -p 8080:8080 servidord1```
+  ```docker run -d --name server --network redeD1 -p 8080:8080 servidord1```<br>
   Subir o cliente:
-  ```docker run -d --name cliented1 --network redeD1 cliented1```
+  ```docker run -d --name cliented1 --network redeD1 cliented1```<br>
   Visualizar os logs do cliente:
   ```docker logs -f cliented1```
 </details>
