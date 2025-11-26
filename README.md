@@ -29,7 +29,7 @@
 
   Passo a passo de como rodar o desafio:<br>
   1. Subir o banco PostgreSQL:
-  ```docker compose up -d```<br>
+  ```docker compose up -d --build```<br>
   2. Acessa o banco de dados:
   ```docker exec -it desafio2 psql -U admin -d teste```<br>
   3. Cria a tabela e insere os dados:
@@ -54,4 +54,58 @@
   ````docker compose up -d````
   ````docker exec -it desafio2 psql -U admin -d teste````
   ````SELECT * FROM alunos;````
+</details>
+
+<details>
+  <summary><strong>Guia desafio 3 - Docker Compose Orquestrando Serviços</strong></summary>
+  
+  Nesse desafio usa-se Docker compose para orquestrar múltplos serviços dependentes:
+  - Servidor Web;
+  - Banco de Dados;
+  - Cache
+
+  Passo a passo de como rodar o desafio:<br>
+  1. Subir os Contêineres:
+  ```docker compose up -d --build```<br>
+  2. Testar Servidor Web:
+  ```curl http://localhost:8000```<br>
+  3. Validar Conexão com Redis (Cache)
+  ```curl http://localhost:8000/cache-test```
+  4. Testar Banco de Dados (PostgreSQL):
+  ```curl http://localhost:8000/db-data```<br>
+  5. Verificar persistência dos dados:
+  ```curl http://localhost:8000/db-data```
+</details>
+
+<details>
+  <summary><strong>Guia desafio 4 - Microsserviços Independentes</strong></summary>
+  
+  Nesse desafio foi criado dois microsserviços independentes que se comunicam através de HTTP
+  - Microsserviço 1 (Lista de Usuários Json)
+  - Microsserviço 2 (Consome o serviço 1)
+
+  Passo a passo de como rodar o desafio:<br>
+  1. Subir os contêineres dos microsserviços:
+  ```docker compose up -d --build```<br>
+  2. Testar Microsserviço 1:
+  ```curl http://localhost:5001/usuarios```<br>
+  3. Testar Microsserviço 2:
+  ```curl http://localhost:5002/info-usuarios```
+</details>
+
+<details>
+  <summary><strong>Guia desafio 5 - Microsserviços com API Gateway</strong></summary>
+
+  Nesse desafio foi criado uma arquitetura com API Gateway que centraliza o acesso aos dois microsserviços
+  - Microsserviço 1 (Fornece dados dos usuários)
+  - Microsserviço 2 (Fornece os pedidos)
+  - Gateway (Usa endpoints: /usuarios e /pedidos)
+
+  Passo a passo de como rodar o desafio:<br>
+  1. Subir os contêineres:
+  ```docker compose up -d --build```<br>
+  2. Testar Gateway - endpoint de usuários:
+  ```curl http://localhost:8000/usuarios```<br>
+  3. Testar Gateway - endpoint de pedidos:
+  ```curl http://localhost:8000/pedidos```
 </details>
