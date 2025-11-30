@@ -66,15 +66,16 @@
   - Cache
 
   Passo a passo de como rodar o desafio:<br>
-  1. Subir os Contêineres:
+  1. Entra no diretório: ````cd desafio3````<br>
+  2. Subir os Contêineres:
   ```docker compose up -d --build```<br>
-  2. Testar Servidor Web:
+  3. Testar Servidor Web:
   ```curl http://localhost:8000```<br>
-  3. Validar Conexão com Redis (Cache)
+  4. Validar Conexão com Redis (Cache)
   ```curl http://localhost:8000/cache-test```
-  4. Testar Banco de Dados (PostgreSQL):
+  5. Testar Banco de Dados (PostgreSQL):
   ```curl http://localhost:8000/db-data```<br>
-  5. Verificar persistência dos dados:
+  6. Verificar persistência dos dados:
   ```curl http://localhost:8000/db-data```
 </details>
 
