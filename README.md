@@ -28,11 +28,12 @@
   <br><br>
 
   Passo a passo de como rodar o desafio:<br>
-  1. Subir o banco PostgreSQL:
+  1. Entra no diretório: ````cd desafio2````<br>
+  2. Subir o banco PostgreSQL:
   ```docker compose up -d --build```<br>
-  2. Acessa o banco de dados:
+  3. Acessa o banco de dados:
   ```docker exec -it desafio2 psql -U admin -d teste```<br>
-  3. Cria a tabela e insere os dados:
+  4. Cria a tabela e insere os dados:
   ```
   CREATE TABLE alunos (
     id SERIAL PRIMARY KEY,
@@ -45,12 +46,12 @@
   SELECT * FROM alunos;
   ```
   
-  4. Sair do PostgreSQL:
+  5. Sair do PostgreSQL:
   ````\q````<br>
-  5. Derruba o contêiner:
+  6. Derruba o contêiner:
   ```docker compose down```
 
-  6. Para testar a persistência do dado faça:
+  7. Para testar a persistência do dado faça:
   ````docker compose up -d````
   ````docker exec -it desafio2 psql -U admin -d teste````
   ````SELECT * FROM alunos;````
