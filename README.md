@@ -87,11 +87,12 @@
   - Microsserviço 2 (Consome o serviço 1)
 
   Passo a passo de como rodar o desafio:<br>
-  1. Subir os contêineres dos microsserviços:
+  1. Entra no diretório: ````cd desafio4````<br>
+  2. Subir os contêineres dos microsserviços:
   ```docker compose up -d --build```<br>
-  2. Testar Microsserviço 1:
+  3. Testar Microsserviço 1:
   ```curl http://localhost:5001/usuarios```<br>
-  3. Testar Microsserviço 2:
+  4. Testar Microsserviço 2:
   ```curl http://localhost:5002/info-usuarios```
 </details>
 
@@ -104,10 +105,11 @@
   - Gateway (Usa endpoints: /usuarios e /pedidos)
 
   Passo a passo de como rodar o desafio:<br>
-  1. Subir os contêineres:
+  1. Entra no diretório: ````cd desafio5````<br>
+  2. Subir os contêineres:
   ```docker compose up -d --build```<br>
-  2. Testar Gateway - endpoint de usuários:
+  3. Testar Gateway - endpoint de usuários:
   ```curl http://localhost:8000/usuarios```<br>
-  3. Testar Gateway - endpoint de pedidos:
+  4. Testar Gateway - endpoint de pedidos:
   ```curl http://localhost:8000/pedidos```
 </details>
